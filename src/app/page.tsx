@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SearchModal from '@/components/SearchModal';
-import ChatWidget from '@/components/ChatWidget';
 import DisputeWizard from '@/components/DisputeWizard';
 import { 
   Search, ShieldAlert, Lock, ArrowRight, CheckCircle, 
@@ -250,7 +249,6 @@ export default function Home() {
           setSubmittedCaseId(caseId);
         }}
       />
-      <ChatWidget />
     </div>
   );
 }

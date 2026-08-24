@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SearchModal from '@/components/SearchModal';
-import ChatWidget from '@/components/ChatWidget';
 import DisputeWizard from '@/components/DisputeWizard';
 import { 
   ShieldAlert, Clock, CheckCircle2, AlertCircle, FileText, ChevronRight, 
@@ -271,7 +270,6 @@ export default function DisputesPage() {
           setActiveCase(newCase);
         }}
       />
-      <ChatWidget />
     </div>
   );
 }

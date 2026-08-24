@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SearchModal from '@/components/SearchModal';
-import ChatWidget from '@/components/ChatWidget';
 import { 
   Lock, Shield, Smartphone, KeyRound, CheckCircle, AlertTriangle, ArrowRight, ShieldCheck, Mail, RefreshCw
 } from 'lucide-react';
@@ -251,7 +250,6 @@ export default function RecoveryPage() {
 
       <Footer />
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-      <ChatWidget />
     </div>
   );
 }
