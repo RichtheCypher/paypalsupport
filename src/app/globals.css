@@ -1,68 +1,99 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --paypal-dark-blue: #003087;
-    --paypal-blue: #0070ba;
-    --paypal-light-blue: #009cde;
-    --paypal-yellow: #ffc439;
-    --paypal-navy: #041e42;
-    --paypal-bg-light: #f5f7fa;
-    --paypal-card-light: #ffffff;
-    --paypal-text-primary: #0c2340;
-    --paypal-text-secondary: #54657e;
-  }
-
-  .dark {
-    --paypal-bg-light: #0b1329;
-    --paypal-card-light: #111a33;
-    --paypal-text-primary: #f0f4f8;
-    --paypal-text-secondary: #94a3b8;
-  }
+:root {
+  /* Emil Kowalski Color System: Precision Monochromatic Slate & Subtle Brand Blue */
+  --bg-primary: #ffffff;
+  --bg-subtle: #fafafa;
+  --bg-card: #ffffff;
+  
+  --border-slate: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-focus: #0066cc;
+  
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  
+  /* Brand Accent: PayPal Royal Blue */
+  --accent: #0066cc;
+  --accent-hover: #0052a3;
+  --accent-light: #eff6ff;
+  --accent-border: #bfdbfe;
+  
+  /* Emil Kowalski Multi-layered Soft Shadows */
+  --shadow-sm: 0px 1px 2px rgba(15, 23, 42, 0.04), 0px 1px 1px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0px 4px 8px -2px rgba(15, 23, 42, 0.06), 0px 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0px 12px 16px -4px rgba(15, 23, 42, 0.08), 0px 4px 6px -2px rgba(15, 23, 42, 0.03);
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--paypal-bg-light);
-  color: var(--paypal-text-primary);
+  font-family: 'DejaVu Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: var(--text-main);
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glassmorphism effects */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+/* Emil Kowalski Precision Card Utility */
+.emil-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-slate);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark .glass-panel {
-  background: rgba(17, 26, 51, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.emil-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1.5px);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: #334155;
+/* Emil Kowalski Tactile Button Utility */
+.emil-button-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.25);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Pulse Glow & Gradient animations */
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.92; transform: scale(1.01); }
+.emil-button-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-0.5px);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12), inset 0px 1px 0px rgba(255, 255, 255, 0.25);
 }
 
-.animate-pulse-subtle {
-  animation: pulse-subtle 4s infinite ease-in-out;
+.emil-button-primary:active {
+  transform: translateY(0.5px) scale(0.99);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Emil Kowalski Secondary Button */
+.emil-button-secondary {
+  background-color: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-slate);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.emil-button-secondary:hover {
+  background-color: var(--bg-subtle);
+  border-color: #cbd5e1;
+  transform: translateY(-0.5px);
+  box-shadow: var(--shadow-md);
+}
+
+.emil-button-secondary:active {
+  transform: translateY(0.5px) scale(0.99);
+}
+
+/* Accessibility Focus Ring */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
